@@ -8,7 +8,6 @@
 
         <?php 
 
-                $msg=""; //variabile glob
                 session_start();
 
                 if(!isset($_POST["login"])){
@@ -21,7 +20,7 @@
         
         <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
                     
-            <input required type="text" name="username" placeholder="Nome utente"><br><br>
+            <input required type="text" name="username" placeholder="Username"><br><br>
             <input required type="password" name="password" placeholder="Password"><br><br>
 
             <input name="login" type="submit" value="Login">
@@ -30,8 +29,6 @@
 
         <?php 
         }else{
-            echo "Gestione autenticazione<br>";
-
             try{
                 $file=fopen("../db/utenti.csv", "r");
 
@@ -39,27 +36,20 @@
                     $riga=fgets($file);
                     $rigaSplit=explode("|", $riga);
                     
-                    if(trim($rigaSplit[1])==$_POST["username"] and $rigaSplit[2]==$_POST["password"]){  //trim toglie spazi ad una stringa
+                    if(trim($rigaSplit[3])==$_POST["username"] and $rigaSplit[4]==$_POST["password"]){  //trim toglie spazi ad una stringa
                         $_SESSION["AUTENTICATO"]="ok";
-                        $_SESSION["NOMINATIVO"]=$rigaSplit[4]." ".$rigaSplit[3];
+                        $_SESSION["NOMINATIVO"]=$rigaSplit[2]." ".$rigaSplit[1];
                         header('Location: logged.php'); 
                     }else{
-                        
+                        header('Location: login.php');
                     }
 
-                    //print_r($rigaSplit);
                                       
                 }
 
 
             }catch(Exception $e){
-                $msg="ERRORE: ".$e->getMessage();   //recupero metodo di $e
             }
-
-            if(!empty($msg)){
-                echo $msg;
-            }
-
         }
 
     ?>
