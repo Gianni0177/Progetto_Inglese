@@ -1,5 +1,5 @@
 <?php
-session_start();
+/*session_start();
 
 if (isset($_POST["login"])) {
     try {
@@ -25,6 +25,40 @@ if (isset($_POST["login"])) {
         }
     } catch (Exception $e) {
        
+    }
+}*/
+
+
+session_start();
+
+if (isset($_POST["login"])) {
+    try {
+        $connessione = mysqli_connect("localhost", "root", "root", "progettoinglese");
+
+        // Prevenzione SQL injection
+        $username = mysqli_real_escape_string($connessione, $_POST["username"]);
+        $password = mysqli_real_escape_string($connessione, $_POST["password"]);
+
+        // Query SQL per il login
+        $sql = "SELECT * FROM utente WHERE username='$username' AND pwd='$password'";
+        $risultato = $connessione->query($sql);
+
+        if ($risultato && $risultato->num_rows > 0) {
+            // Utente trovato, imposto le variabili di sessione
+            $_SESSION["AUTENTICATO"] = "ok";
+            $_SESSION["USER"] = $username;
+
+            $connessione->close();
+
+            header('Location: areariservata.php');
+            exit();
+        } else {
+            // Utente non trovato, reindirizzo alla pagina di login
+            header('Location: login.php');
+            exit();
+        }
+    } catch (Exception $e) {
+        // Gestione eccezioni
     }
 }
 
