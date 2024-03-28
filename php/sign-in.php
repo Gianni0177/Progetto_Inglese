@@ -1,72 +1,57 @@
+
+
 <html>
 <head>
-
     <title>Sign-In</title>
-    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <link rel="stylesheet" type="text/css" href="../css/stile2.css">
 </head>
-<body>
-
-        <?php               
-                
-                if(!isset($_POST["login"])){
-
-            ?>
-
-    <div class="login-container">
-        <h2>Sign in</h2>
-        
-        <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-            
-            <input required type="text" name="name" placeholder="Your name"><br><br>
-            <input required type="text" name="surname" placeholder="Your surname"><br><br>
-            <input required type="text" name="username" placeholder="Username"><br><br>
-            <input required type="password" name="password" placeholder="Password"><br><br>
-
-            <input name="login" type="submit" value="Sign In">
-        </form>
-    </div>
-
-        <?php 
-        }else{
-            try{
-                $file=fopen("../db/utenti.csv", "a+");
-
-                $exist=false;
-                $id=-1;
-
-                while(!feof($file)){       //file-end-of-file
-                    $riga=fgets($file);
-                    $rigaSplit=explode("|", $riga);
-                    
-                    if(trim($rigaSplit[3])==$_POST["username"] and $rigaSplit[4]==$_POST["password"]){ 
-                        $exist=true; 
-                        break;
-                    }                    
-                }
-
-                $id=$rigaSplit[0];
-
-                    if($exist==true){
-                        header('Location: already-exist.html');
-                    }else{
-                        echo "Scrittura";
-                        
-                        $user=((intval($id)+1)."|".$_POST["name"]."|".$_POST["surname"]."|".$_POST["username"]."|".$_POST["password"]);
-                        fwrite($file, "\r\n".$user);
-                    }
 
 
-            }catch(Exception $e){
-                $msg="ERRORE: ".$e->getMessage();   
-            }
+<?php
+if (isset($_POST["sign-in"])) {
+    try {
+        $connessione = mysqli_connect("localhost", "root", "root", "progettoinglese");
 
-            if(!empty($msg)){
-                echo $msg;
-            }
+       
+        $sql = "INSERT INTO utente (username, pwd, email, nome, cognome, nome_scuola, data_registrazione) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+        $stmt = mysqli_prepare($connessione, $sql);
 
+        if ($stmt) {
+            mysqli_stmt_bind_param($stmt, "ssssss", $_POST["username"], $_POST["password"], $_POST["email"], $_POST["name"], $_POST["surname"], $_POST["school_name"]);
+
+            mysqli_stmt_execute($stmt);
+            mysqli_stmt_close($stmt);
         }
 
-    ?>
+        mysqli_close($connessione);
+    } catch (Exception $e) {
+        $msg = "ERRORE: " . $e->getMessage();
+    }
+
+    header("Location: registered.html");
+    exit();
+}
+
+?>
+
+<body>
+
+<div class="login-container">
+    <h2>Sign in</h2>
+    <form method="post" action="<?php echo ($_SERVER["PHP_SELF"]); ?>">
+        <input required type="text" name="username" placeholder="Your username"><br><br>
+        <input required type="email" name="email" placeholder="Your email"><br><br>
+        <input required type="password" name="password" placeholder="Your password"><br><br>
+        <input required type="text" name="name" placeholder="Your name"><br><br>
+        <input required type="text" name="surname" placeholder="Your surname"><br><br>
+        <input required type="text" name="school_name" placeholder="School name"><br><br>
+        <input name="sign-in" type="submit" value="Sign In">
+    </form>
+</div>
+
+</body>
+</html>
+
 
 
     </div>

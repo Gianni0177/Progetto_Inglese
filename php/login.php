@@ -1,64 +1,84 @@
+<?php
+/*session_start();
+
+if (isset($_POST["login"])) {
+    try {
+        $connessione = mysqli_connect("localhost", "root", "root", "progettoinglese");
+
+        $sql = "SELECT * FROM utente WHERE username=$_POST[username] AND pwd='$_POST[password];";
+        $risultato=$connessione->query($sql);
+        //$risultato = mysqli_query($connessione, $sql);
+        
+        if ($risultato && mysqli_num_rows($risultato) > 0) {
+            
+            $_SESSION["AUTENTICATO"] = "ok";
+            $_SESSION["USER"] = $_POST["username"];
+
+           $connessione->close();
+
+            header('Location: areariservata.php');
+            exit();
+        } else {
+            
+            header('Location: login.php');
+            exit();
+        }
+    } catch (Exception $e) {
+       
+    }
+}*/
+
+
+session_start();
+
+if (isset($_POST["login"])) {
+    try {
+        $connessione = mysqli_connect("localhost", "root", "root", "progettoinglese");
+
+        // Prevenzione SQL injection
+        $username = mysqli_real_escape_string($connessione, $_POST["username"]);
+        $password = mysqli_real_escape_string($connessione, $_POST["password"]);
+
+        // Query SQL per il login
+        $sql = "SELECT * FROM utente WHERE username='$username' AND pwd='$password'";
+        $risultato = $connessione->query($sql);
+
+        if ($risultato && $risultato->num_rows > 0) {
+            // Utente trovato, imposto le variabili di sessione
+            $_SESSION["AUTENTICATO"] = "ok";
+            $_SESSION["USER"] = $username;
+
+            $connessione->close();
+
+            header('Location: areariservata.php');
+            exit();
+        } else {
+            // Utente non trovato, reindirizzo alla pagina di login
+            header('Location: login.php');
+            exit();
+        }
+    } catch (Exception $e) {
+        // Gestione eccezioni
+    }
+}
+
+?>
+
 <html>
 <head>
-
     <title>Login Form</title>
-    <link rel="stylesheet" type="text/css" href="../css/login.css">
+    <link rel="stylesheet" type="text/css" href="../css/stile2.css">
 </head>
 <body>
 
-        <?php 
-
-                session_start();
-
-                if(!isset($_POST["login"])){
-                    
-
-            ?>
-
-    <div class="login-container">
-        <h2>Portale Login</h2>
-        
-        <form method="post" action="<?php echo $_SERVER["PHP_SELF"]?>">
-                    
-            <input required type="text" name="username" placeholder="Username"><br><br>
-            <input required type="password" name="password" placeholder="Password"><br><br>
-
-            <input name="login" type="submit" value="Login">
-        </form>
-    </div>
-
-        <?php 
-        }else{
-            try{
-                $file=fopen("../db/utenti.csv", "r");
-
-                while(!feof($file)){       //file-end-of-file
-                    $riga=fgets($file);
-                    $rigaSplit=explode("|", $riga);
-                    
-                    if(trim($rigaSplit[3])==$_POST["username"] and $rigaSplit[4]==$_POST["password"]){  //trim toglie spazi ad una stringa
-                        $_SESSION["AUTENTICATO"]="ok";
-                        $_SESSION["NOMINATIVO"]=$rigaSplit[2]." ".$rigaSplit[1];
-                        header('Location: logged.php'); 
-                    }else{
-                        header('Location: login.php');
-                    }
-
-                                      
-                }
-
-
-            }catch(Exception $e){
-            }
-        }
-
-    ?>
-
-
-    </div>
+<div class="login-container">
+    <h2>Portale Login</h2>
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+        <input required type="text" name="username" placeholder="Username"><br><br>
+        <input required type="password" name="password" placeholder="Password"><br><br>
+        <input name="login" type="submit" value="Login">
+    </form>
+</div>
 
 </body>
 </html>
-
-
-
