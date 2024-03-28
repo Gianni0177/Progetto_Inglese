@@ -274,6 +274,14 @@
     padding: 60px;
   }
 
+  .space2{
+    padding: 40px;
+  }
+
+  .pad{
+    padding-left: 10px;
+  }
+
   body {
     display: flex;
     flex-wrap: wrap;
@@ -439,5 +447,3 @@
   .hide {
     display: none;
   }
-
-  
