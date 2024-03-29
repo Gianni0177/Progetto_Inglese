@@ -34,7 +34,8 @@
       {
         "ignore": [
           "rotate",
-          "translate"
+          "translate",
+          "scale"
         ]
       }
     ]

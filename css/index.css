@@ -117,6 +117,7 @@
   .dropdown > a {
     display: flex;
     align-items: center;
+    
     gap: 2px;
     height: 72px;
   }
@@ -175,7 +176,7 @@
   /* Sidebar Sinistra*/
   
   .sidebarS {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 250px;
@@ -183,7 +184,7 @@
     background: #3a3544;
     z-index: 90;
     transition: all 0.3s ease;
-    background-color: #221d2d; /* Da aggiustare*/
+    background-color: #3a3544; /* Da aggiustare*/
   }
   
   .sidebarS ul{
@@ -223,7 +224,7 @@
   /* Sidebar dx*/
   
   .sidebarD {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 250px;
@@ -231,7 +232,7 @@
     background: #3a3544;
     z-index: 90;
     justify-content: space-between;
-    background-color: #221d2d; /* Da aggiustare*/
+    background-color: #3a3544; /* Da aggiustare*/
   }
   
   .sidebarD ul{
@@ -288,7 +289,7 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    background: #221d2d;
+    background: #3a3544;
     
   }
 
@@ -435,7 +436,7 @@
     padding: 1em 2.2em;
     border-radius: 3em;
     background-color: transparent;
-    color: #6759ff;
+    color: #fff;
     cursor: pointer;
   }
 
@@ -446,4 +447,71 @@
 
   .hide {
     display: none;
+  }
+
+  .dropdownSB {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .dropdownSB > a {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    gap: 2px;
+    height: 72px;
+  }
+  .dropdownSB > a > img {
+    width: 20px;
+  }
+  
+  .dropdownSB:hover .menuSB {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .menuSB {
+    position: absolute;
+    top: 60px;
+    right: -20px;
+    display: grid;
+    width: 180px;
+    padding: 8px 0;
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #e1e1e1;
+    box-shadow: 0 40px 40px rgb(0 0 0 / 6%);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.25s;
+  }
+  
+  .menuSB::before {
+    content: "";
+    background: inherit;
+    border-top: 1px solid #e1e1e1;
+    border-right: 1px solid #e1e1e1;
+    position: absolute;
+    top: -7px;
+    right: 22px;
+    width: 12px;
+    height: 12px;
+    rotate: -45deg;
+  }
+  
+  .menuSB.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .menuSB > a {
+    font-size: 14px;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .menuSB > a:hover {
+    background: #f5f5f5;
   }
