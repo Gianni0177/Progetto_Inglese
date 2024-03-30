@@ -31,6 +31,12 @@ if (isset($_POST["login"])) {
 
 session_start();
 
+if(isset($_SESSION["AUTENTICATO"]) and $_SESSION["AUTENTICATO"]=="ok"){
+                    
+    header("Location: ../index.php");
+    
+}
+
 if (isset($_POST["login"])) {
     try {
         $connessione = mysqli_connect("localhost", "root", "root", "progettoinglese");
@@ -50,7 +56,7 @@ if (isset($_POST["login"])) {
 
             $connessione->close();
 
-            header('Location: areariservata.php');
+            header('Location: ../index.php');
             exit();
         } else {
             // Utente non trovato, reindirizzo alla pagina di login

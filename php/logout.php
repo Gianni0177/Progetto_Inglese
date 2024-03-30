@@ -6,5 +6,5 @@
 	// https://www.php.net/manual/en/function.unset.php
 	// https://www.w3schools.com/php/func_var_unset.asp
 	unset($_SESSION["AUTENTICATO"]);
-	header("Location: ../index.html");
+	header("Location: ../index.php");
 ?>
