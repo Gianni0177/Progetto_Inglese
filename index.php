@@ -3,6 +3,67 @@ session_start();
 if(!$_SESSION["AUTENTICATO"]=="ok"){
     header("Location: php/login.php");
 }
+
+    //verifico se l'utente è già iscritto al corso scelto
+
+    if(isset($_GET["corso"])){
+
+        $already_sub="no";
+        
+        echo "<script>console.log('Corso trovato: $_GET[corso]');</script>";
+        echo "<script>console.log('USER: $_SESSION[USER]');</script>";
+        echo "<script>console.log('ALREADY SUB: $already_sub');</script>";
+        
+        try {
+            $connessione = mysqli_connect("localhost", "root", "root", "progettoinglese");
+            
+            $sql = "SELECT * FROM corso_utente WHERE nome_corso='$_GET[corso]' AND username_utente='$_SESSION[USER]';";
+            
+            $risultato = $connessione->query($sql);
+
+            if ($risultato && $risultato->num_rows > 0) {
+                while ($array = mysqli_fetch_assoc($risultato)) {
+                    
+                    echo "<script>console.log('Corso trovato nel DB: " .$array["username_utente"]." ".$array["nome_corso"]." ".$array["n_progressivo"]. "' );</script>";
+                        if($_SESSION["USER"]==$array["username_utente"] and $_GET["corso"]==$array["nome_corso"]){
+                            $already_sub="yes";
+                        }
+                }
+            }
+
+                echo "<script>console.log('TEST');</script>";
+
+                if($already_sub=="yes"){
+                    $connessione->close();
+                    header("Location: already-subscribed.html");
+                    exit();
+                }
+                
+                if($already_sub=="no"){
+                    //iscrizione mediante DB
+                    $sql = "INSERT INTO corso_utente (username_utente, nome_corso) VALUES (?, ?)";
+                    $stmt = mysqli_prepare($connessione, $sql);
+
+                    if ($stmt) {
+                        mysqli_stmt_bind_param($stmt, "ss", $_SESSION["USER"], $_GET["corso"]);
+
+                        mysqli_stmt_execute($stmt);
+                        mysqli_stmt_close($stmt);
+                        $connessione->close();
+                        header("Location: correctly-subscribed.html");
+                        exit();
+                    }
+                }
+
+                exit();
+            
+        } catch (Exception $e) {
+            // Gestione eccezioni
+        }
+
+    }  
+
+
 ?>
 
 <!DOCTYPE html>z
@@ -23,39 +84,9 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
     <script>
        
         function iscrizione(corso){
-            console.log("Corso scelto: "+corso);
-            
-            <?php 
-
-                    //verifico se l'utente è già iscritto al corso scelto
-                   
-                    try {
-                        $connessione = mysqli_connect("localhost", "root", "root", "progettoinglese");
-
-                        $sql = "SELECT * FROM corso_utente WHERE nome_corso='corso' AND username_utente=$_SESSION[USER];";
-                        $risultato = $connessione->query($sql);
-                
-                        if ($risultato && $risultato->num_rows > 0) {
-                            while ($array = mysqli_fetch_assoc($risultato)) {
-                                echo "<script>console.log('Corso trovato: " .$array["username_utente"]." ".$array["nome_corso"]." ".$array["id_corso"]. "' );</script>";
-                            }
-
-                            
-                
-                            $connessione->close();
-            
-                            exit();
-                        }
-                    } catch (Exception $e) {
-                        // Gestione eccezioni
-                    }
-
-
-
-                
-
-                
-            ?>
+            var url="index.php?corso="+corso;   //mi passo il corso con il get nell'url
+            window.location.href = url;         //ricarico per aggiornare l'url
+   
         }
 
         function ricercaCorso(){
@@ -198,7 +229,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
             <p>
             Appunti su Pascoli - 20/03/2024
             </p>
-            <button>Follow Account</button>
+            <button type="submit" name="Litherature" onclick="iscrizione(name);">Follow</button>
         </div>
     </div>
 </div>
