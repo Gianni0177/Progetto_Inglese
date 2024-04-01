@@ -45,8 +45,6 @@ session_start();
                 $materia=$_POST["materia"];
                 $grado=$_POST["grado"];
                 
-                //print_r([$_POST]);
-                // Query SQL per il login
                 $sql = "SELECT * FROM lista_corsi WHERE materia='$materia' AND grado='$grado'";
                 $risultato = $connessione->query($sql);
         

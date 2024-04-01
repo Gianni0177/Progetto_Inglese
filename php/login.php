@@ -1,33 +1,4 @@
 <?php
-/*session_start();
-
-if (isset($_POST["login"])) {
-    try {
-        $connessione = mysqli_connect("localhost", "root", "root", "progettoinglese");
-
-        $sql = "SELECT * FROM utente WHERE username=$_POST[username] AND pwd='$_POST[password];";
-        $risultato=$connessione->query($sql);
-        //$risultato = mysqli_query($connessione, $sql);
-        
-        if ($risultato && mysqli_num_rows($risultato) > 0) {
-            
-            $_SESSION["AUTENTICATO"] = "ok";
-            $_SESSION["USER"] = $_POST["username"];
-
-           $connessione->close();
-
-            header('Location: areariservata.php');
-            exit();
-        } else {
-            
-            header('Location: login.php');
-            exit();
-        }
-    } catch (Exception $e) {
-       
-    }
-}*/
-
 
 session_start();
 

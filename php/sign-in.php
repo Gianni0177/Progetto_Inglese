@@ -23,7 +23,6 @@ if (isset($_POST["sign-in"])) {
 
         mysqli_close($connessione);
     } catch (Exception $e) {
-        $msg = "ERRORE: " . $e->getMessage();
     }
 
     header("Location: registered.html");

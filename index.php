@@ -4,15 +4,15 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
     header("Location: php/login.php");
 }
 
-    //verifico se l'utente è già iscritto al corso scelto
+    //ISCRIZIONE AI CORSI
 
     if(isset($_GET["corso"])){
 
         $already_sub="no";
         
-        echo "<script>console.log('Corso trovato: $_GET[corso]');</script>";
+        /*echo "<script>console.log('Corso trovato: $_GET[corso]');</script>";
         echo "<script>console.log('USER: $_SESSION[USER]');</script>";
-        echo "<script>console.log('ALREADY SUB: $already_sub');</script>";
+        echo "<script>console.log('ALREADY SUB: $already_sub');</script>";*/
         
         try {
             $connessione = mysqli_connect("localhost", "root", "root", "progettoinglese");
@@ -30,8 +30,6 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
                         }
                 }
             }
-
-                echo "<script>console.log('TEST');</script>";
 
                 if($already_sub=="yes"){
                     $connessione->close();
@@ -61,12 +59,14 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
             // Gestione eccezioni
         }
 
-    }  
+    }
+
+
 
 
 ?>
 
-<!DOCTYPE html>z
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -86,11 +86,16 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
         function iscrizione(corso){
             var url="index.php?corso="+corso;   //mi passo il corso con il get nell'url
             window.location.href = url;         //ricarico per aggiornare l'url
-   
         }
 
-        function ricercaCorso(){
+        function ricercaCorsoPerMateria(materia){
+            var url="index.php?materia="+materia;   
+            window.location.href = url;         
+        }
 
+        function ricercaCorsoPerGrado(grado){
+            var url="index.php?grado="+grado;   
+            window.location.href = url;
         }
 
     </script>
@@ -161,11 +166,12 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
 <!-- SearchBar -->
 
 <div class="wrapper">
-    <form action="php/ricercaCorso.php" method="post">
+    <form action="index.php" method="post">
         <div id="search-container">
-            <input type="search" id="search-input" placeholder="Search here.."/>
-            <button type="submit" id="search" onclick="">Search</button>
+            <input name="ricercaBarra" type="search" id="ricercaBarra" placeholder="Search here.."/>
+            <button name="invio" type="submit" id="search" onclick="">Search</button>
         </div>
+    </form>
 
         <!--Dropdown-->
         <div id="buttons">
@@ -175,12 +181,12 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
                         <img src="img/chevron.png" />
                     </a>
                     <div class="menuSB">
-                        <a href="#"> English </a>
-                        <a href="#"> IT Technology </a>
-                        <a href="#"> Science </a>
-                        <a href="#"> Phisics </a>
-                        <a href="#"> Mathematics </a>
-                        <a href="#"> opzione6 </a>
+                        <a name="English" href="#" onclick="ricercaCorsoPerMateria(name);"> English </a>
+                        <a name="IT Technology" href="#" onclick="ricercaCorsoPerMateria(name);"> IT Technology </a>
+                        <a name="Science" href="#" onclick="ricercaCorsoPerMateria(name);"> Science </a>
+                        <a name="Phisics" href="#" onclick="ricercaCorsoPerMateria(name);"> Phisics </a>
+                        <a name="Mathematics" href="#" onclick="ricercaCorsoPerMateria(name);"> Mathematics </a>
+                        <a name="Network" href="#" onclick="ricercaCorsoPerMateria(name);"> Networks </a>
                     </div>
                 </div>
 
@@ -191,22 +197,203 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
                         <img src="img/chevron.png" />
                     </a>
                     <div class="menuSB">
-                        <a href="#"> opzione1 </a>
-                        <a href="#"> opzione2 </a>
-                        <a href="#"> opzione3 </a>
+                        <a name="High school diploma" href="#" onclick="ricercaCorsoPerGrado(name);"> High school diploma </a>
+                        <a name="Master's degree" href="#" onclick="ricercaCorsoPerGrado(name);"> Master's degree </a>
+                        <a name="Doctor of Philosophy" href="#" onclick="ricercaCorsoPerGrado(name);"> Doctor of Philosophy </a>
                     </div>
                 </div>
             </div>
         </div>
-    </form>
+    
     </div>
     <div id="products"></div>
 </div>
     
 <div class="space2"></div>
     
-<!-- Corsi -->  
-<div class="container">  
+<!-- Corsi --> 
+    <?php 
+        //Ricerca corsi nella stessa pagina con searchbar
+        if(isset($_POST["ricercaBarra"]) and $_POST["ricercaBarra"]!="" and isset($_POST["invio"])){
+            //print_r($_POST);
+
+            try {
+                $connessione = mysqli_connect("localhost", "root", "root", "progettoinglese");
+        
+                $nomeCorso=$_POST["ricercaBarra"];
+                
+                $sql = "SELECT * FROM lista_corsi WHERE nome='$nomeCorso'";
+                $risultato = $connessione->query($sql);
+        
+                if ($risultato && $risultato->num_rows > 0) {
+                    while ($array = mysqli_fetch_assoc($risultato)) {
+                        //stampo se trovo
+                        ?>
+                        <div class="container">  
+                            <div class="card">
+                                <img src="img/example_English1.jpg" />
+                                <div class="testoCorsi">
+                                    <h2><?php echo $array["nome"]?></h2>
+                                    <h3><?php echo $array["materia"]." - ".$array["grado"]?></h3>
+                                    <p>
+                                    <?php echo $array["autore"]." - ".$array["data_inizio"]?>
+                                    </p>
+                                    <button type="submit" name="<?php echo $array["nome"]?>" onclick="iscrizione(name);">Follow</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <?php
+                    }
+                    
+                }else{
+                    ?>
+                        <div>
+                            <h2 style="color:white;">The course you searched for is not present in the system</h2>
+                        </div>
+                    <?php
+                }
+
+
+                $connessione->close();
+                exit();
+
+            } catch (Exception $e) {
+                // Gestione eccezioni
+            }
+
+            //ricerca per materia
+        }else if(isset($_GET["materia"])){
+        try {
+            $connessione = mysqli_connect("localhost", "root", "root", "progettoinglese");
+
+            $materia=$_GET["materia"];
+            
+            $sql = "SELECT * FROM lista_corsi WHERE materia='$materia'";
+            $risultato = $connessione->query($sql);
+    
+            if ($risultato && $risultato->num_rows > 0) {
+                while ($array = mysqli_fetch_assoc($risultato)) {
+                    //stampo se trovo
+                    ?>
+                    <div class="container">  
+                        <div class="card">
+                            <img src="img/example_English1.jpg" />
+                            <div class="testoCorsi">
+                                <h2><?php echo $array["nome"]?></h2>
+                                <h3><?php echo $array["materia"]." - ".$array["grado"]?></h3>
+                                <p>
+                                <?php echo $array["autore"]." - ".$array["data_inizio"]?>
+                                </p>
+                                <button type="submit" name="<?php echo $array["nome"]?>" onclick="iscrizione(name);">Follow</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php
+                }
+                
+            }else {
+                ?>
+                    <div>
+                        <h2 style="color:white;">There aren't courses of <?php echo $materia?></h2>
+                    </div>
+                <?php
+            }
+
+
+            $connessione->close();
+            exit();
+
+        } catch (Exception $e) {
+            // Gestione eccezioni
+        }
+    }else if(isset($_GET["grado"])){
+        try {
+            $connessione = mysqli_connect("localhost", "root", "root", "progettoinglese");
+
+            $grado=$_GET["grado"];
+            
+            $sql = "SELECT * FROM lista_corsi WHERE grado='$grado'";
+            $risultato = $connessione->query($sql);
+    
+            if ($risultato && $risultato->num_rows > 0) {
+                while ($array = mysqli_fetch_assoc($risultato)) {
+                    //stampo se trovo
+                    ?>
+                    <div class="container">  
+                        <div class="card">
+                            <img src="img/example_English1.jpg" />
+                            <div class="testoCorsi">
+                                <h2><?php echo $array["nome"]?></h2>
+                                <h3><?php echo $array["materia"]." - ".$array["grado"]?></h3>
+                                <p>
+                                <?php echo $array["autore"]." - ".$array["data_inizio"]?>
+                                </p>
+                                <button type="submit" name="<?php echo $array["nome"]?>" onclick="iscrizione(name);">Follow</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php
+                }
+                
+            }else {
+                ?>
+                    <div>
+                        <h2 style="color:white;">There aren't courses of <?php echo $grado?></h2>
+                    </div>
+                <?php
+            }
+
+
+            $connessione->close();
+            exit();
+
+        } catch (Exception $e) {
+            // Gestione eccezioni
+        }        
+    }else{
+            //NESSUNA RICERCA / PRIMA APERTURA, STAMPO TUTTA LA PAGINA
+        try {
+            $connessione = mysqli_connect("localhost", "root", "root", "progettoinglese");
+
+            $sql = "SELECT * FROM lista_corsi";
+            $risultato = $connessione->query($sql);
+    
+            if ($risultato && $risultato->num_rows > 0) {
+                while ($array = mysqli_fetch_assoc($risultato)) {
+                    //stampo se trovo
+                    ?>
+                    <div class="container">  
+                        <div class="card">
+                            <img src="img/example_English1.jpg" />
+                            <div class="testoCorsi">
+                                <h2><?php echo $array["nome"]?></h2>
+                                <h3><?php echo $array["materia"]." - ".$array["grado"]?></h3>
+                                <p>
+                                <?php echo $array["autore"]." - ".$array["data_inizio"]?>
+                                </p>
+                                <button type="submit" name="<?php echo $array["nome"]?>" onclick="iscrizione(name);">Follow</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php
+                }
+                
+            }
+
+            $connessione->close();
+            exit();
+
+        } catch (Exception $e) {
+            // Gestione eccezioni
+        }
+    
+
+    ?> 
+<!--<div class="container">  
     <div class="card">
         <img src="img/example_English1.jpg" />
         <div class="testoCorsi">
@@ -246,7 +433,11 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
             <button>Follow Account</button>
         </div>
     </div>
-</div>
+</div>-->
+
+            <?php 
+        }
+            ?>
 
 </body>
 </html>
