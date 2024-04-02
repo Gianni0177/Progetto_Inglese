@@ -2,6 +2,9 @@
 session_start();
 if(!$_SESSION["AUTENTICATO"]=="ok"){
     header("Location: php/login.php");
+
+    
+
 }
 
     //ISCRIZIONE AI CORSI
