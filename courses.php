@@ -63,37 +63,37 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
             }
 
             if(materia=="Litherature"){
-                var url="img/example_Letteratura.jpeg";   
+                var url="img/example_Letteratura.jpg";   
                 window.location.href = url; 
             }
 
             if(materia=="IT Technology"){
-                var url="img/example_ITTech.jpeg";   
+                var url="img/example_ITTech.jpg";   
                 window.location.href = url; 
             }
 
             if(materia=="Science"){
-                var url="img/example_Science.jpeg";   
+                var url="img/example_Science.jpg";   
                 window.location.href = url; 
             }
 
             if(materia=="Phisics"){
-                var url="img/example_Phisics.jpeg";   
+                var url="img/example_Phisics.jpg";   
                 window.location.href = url; 
             }
 
             if(materia=="Mathematics"){
-                var url="img/example_Math1.jpeg";   
+                var url="img/example_Math1.jpg";   
                 window.location.href = url; 
             }
 
             if(materia=="Network"){
-                var url="img/example_Network.jpeg";   
+                var url="img/example_Network.jpg";   
                 window.location.href = url; 
             }
 
             if(materia=="History"){
-                var url="img/example_History.jpeg";   
+                var url="img/example_History.jpg";   
                 window.location.href = url; 
             }
         }
@@ -126,9 +126,9 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
     <ul>
       <li><a href="#"><i class='bx bx-group' ></i> who we are</a></li>
       <li><a href="#"><i class='bx bx-briefcase'></i> what we do</a></li>
-      <li><a href="#"><i class='bx bx-help-circle' ></i> help</a></li>
-      <li><a href="#"><i class='bx bxs-contact'></i> contact</a></li>
-      <li><a href="#"><i class='bx bxl-creative-commons'></i> credit</a></li>
+      <li><a href="help.html"><i class='bx bx-help-circle' ></i> help</a></li>
+      <li><a href="contacts.html"><i class='bx bxs-contact'></i> contact</a></li>
+      <li><a href="credits.html"><i class='bx bxl-creative-commons'></i> credit</a></li>
     </ul>
 </div>
 
@@ -137,7 +137,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
 <nav class="navbar">
         <div class="logo">
           <img src="img/Logo_IMG.png" />
-          <h2>Take Notes! - Area Riservata</h2>
+          <h2>EduStream - Your Courses</h2>
         </div>
         <div class="links">
           <a href="#">TEXT</a>
