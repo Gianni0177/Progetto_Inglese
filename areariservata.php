@@ -88,8 +88,8 @@
           <img src="img/Notes.jpg">
           <div class="content">
               <span>
-                  <h2>Appunti</h2>
-                  <p>Descrizione Eventuale</p>
+                  <h2>Notes</h2>
+                  <p>Notes from the courses you signed up for</p>
               </span>
           </div>
       </li>
@@ -99,8 +99,8 @@
           <img src="img/VideoLessons.png">
           <div class="content">
               <span>
-                  <h2>Videolezioni</h2>
-                  <p>Descrizione Eventuale</p>
+                  <h2>VideoLessons</h2>
+                  <p>Video lessons of the courses you signed up for</p>
               </span>
           </div>
       </li>
@@ -110,8 +110,8 @@
           <img src="img/VideoLessons.png">
           <div class="content" onclick="toCourses()">
               <span>
-                  <h2>Visualizza Corsi</h2>
-                  <p>Descrizione Eventuale</p>
+                  <h2>View courses</h2>
+                  <p>View the courses you have signed up for</p>
               </span>
           </div>
       </li>
