@@ -85,7 +85,11 @@
     padding: 0 12px;
     border-radius: 6px;
     color: #f9f9f9;
-    background: #01a081;
+    background: #d32f2f;
+  }
+
+  a.login-link:hover{
+    color: #000;
   }
   
   .search {
