@@ -135,33 +135,32 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
 
 <!-- Barra di Navigazione -->
 <nav class="navbar">
-    <div class="logo">
-        <img src="img/Logo_IMG.png" />
-        <h2>EduStream - Your Courses</h2>
-    </div>
-    <div class="links">
-        <a href="#">TEXT</a>
-        <a href="#">TEXT</a>
-        <div class="dropdown">
-            <a href="#"
-                >Explore
-                <img src="img/chevron.png" />
+        <div class="logo">
+          <img src="img/Logo_IMG.png" />
+          <h2>Take Notes! - Area Riservata</h2>
+        </div>
+        <div class="links">
+          <a href="#">TEXT</a>
+          <a href="#">TEXT</a>
+          <div class="dropdown">
+            <a href="#">
+              <div class="pfp">
+                <img src="img/Default_pfp.jpg"/> 
+              </div>
+              Account
+              <img src="img/chevron.png"/>
             </a>
             <div class="menu">
-                <a href="#"> opzione1 </a>
-                <a href="#"> opzione2 </a>
-                <a href="#"> opzione3 </a>
-                <a href="#"> opzione4 </a>
-                <a href="#"> opzione5 </a>
-                <a href="#"> opzione6 </a>
+              <a href="#"> opzione1 </a>
+              <a href="#"> opzione2 </a>
+              <a href="#"> opzione3 </a>
+              <a href="#"> opzione4 </a>
+              <a href="#"> opzione5 </a>
+              <a href="php/login.php" class="login-link"> logout </a>
             </div>
+          </div>
         </div>
-        <div class="logo">
-        <img src="img/Default_pfp.jpg" />
-        </div>
-        <a href="php/logout.php" class="login-link"> sign out </a>
-    </div>
-</nav>
+      </nav>
 
 
 <div class="space"></div>
