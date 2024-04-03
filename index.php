@@ -146,18 +146,21 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
         <a href="#">TEXT</a>
         <a href="#">TEXT</a>
         <div class="dropdown">
-        <a href="#"
-            >Explore
-            <img src="img/chevron.png" />
-        </a>
-        <div class="menu">
-            <a href="#"> opzione1 </a>
-            <a href="#"> opzione2 </a>
-            <a href="#"> opzione3 </a>
-            <a href="#"> opzione4 </a>
-            <a href="#"> opzione5 </a>
-            <a href="#"> opzione6 </a>
+            <a href="#"
+                >Explore
+                <img src="img/chevron.png" />
+            </a>
+            <div class="menu">
+                <a href="#"> opzione1 </a>
+                <a href="#"> opzione2 </a>
+                <a href="#"> opzione3 </a>
+                <a href="#"> opzione4 </a>
+                <a href="#"> opzione5 </a>
+                <a href="#"> opzione6 </a>
+            </div>
         </div>
+        <div class="logo">
+        <img src="img/Default_pfp.jpg" />
         </div>
         <a href="php/logout.php" class="login-link"> sign out </a>
     </div>
