@@ -110,7 +110,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
     <!-- Per aggiungere righe copia incolla un li-->
     <ul>
       <li><a href="graduation.html"><i class='bx bxs-graduation'></i> graduation</a></li>
-      <li><a href="areaRiservata.html"><i class='bx bxs-user-badge'></i> reserved area</a></li>
+      <li><a href="areaRiservata.php"><i class='bx bxs-user-badge'></i> reserved area</a></li>
       <li><a href="php/sign-in.php"><i class='bx bxs-log-in'></i> sign in</a></li>
       <li><a href="termsOfUse.html"><i class='bx bx-user'></i> terms of use</a></li>
       <li><a href="settings.html"><i class='bx bx-cog'></i> settings</a></li>

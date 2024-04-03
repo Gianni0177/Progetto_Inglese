@@ -104,6 +104,17 @@
               </span>
           </div>
       </li>
+
+      <!-- Accordion 3-->
+      <li>
+          <img src="img/VideoLessons.png">
+          <div class="content" onclick="to">
+              <span>
+                  <h2>Visualizza Corsi</h2>
+                  <p>Descrizione Eventuale</p>
+              </span>
+          </div>
+      </li>
       
       <!-- Accordion X - copia incolla
       <li>
