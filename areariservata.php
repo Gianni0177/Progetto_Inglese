@@ -108,7 +108,7 @@
       <!-- Accordion 3-->
       <li>
           <img src="img/VideoLessons.png">
-          <div class="content" onclick="to">
+          <div class="content" onclick="toCourses()">
               <span>
                   <h2>Visualizza Corsi</h2>
                   <p>Descrizione Eventuale</p>
