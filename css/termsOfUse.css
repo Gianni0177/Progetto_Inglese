@@ -323,11 +323,11 @@ body{
   }
 
   ol {
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.5;
     text-align: justify;
     width: 100%;
-    max-width: 750px;
+    max-width: 730px;
     margin: 0 auto;
     color: #fff;
   }
