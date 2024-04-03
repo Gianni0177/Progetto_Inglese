@@ -2,6 +2,9 @@
 session_start();
 if(!$_SESSION["AUTENTICATO"]=="ok"){
     header("Location: php/login.php");
+
+    
+
 }
 
     //ISCRIZIONE AI CORSI
@@ -100,7 +103,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
 
     </script>
 
-    <title>Home</title>
+    <title>EduStream - Home</title>
 </head>
 <body>
 
@@ -187,13 +190,15 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
                         <a name="Phisics" href="#" onclick="ricercaCorsoPerMateria(name);"> Phisics </a>
                         <a name="Mathematics" href="#" onclick="ricercaCorsoPerMateria(name);"> Mathematics </a>
                         <a name="Network" href="#" onclick="ricercaCorsoPerMateria(name);"> Networks </a>
+                        <a name="History" href="#" onclick="ricercaCorsoPerMateria(name);"> History </a>
+                        <a name="Litherature" href="#" onclick="ricercaCorsoPerMateria(name);"> Litherature </a>
                     </div>
                 </div>
 
                 <div class="pad"></div>
 
                 <div class="dropdownSB">
-                    <a href="#">Titoli di Studio
+                    <a href="#">Qualification
                         <img src="img/chevron.png" />
                     </a>
                     <div class="menuSB">
@@ -238,7 +243,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
                                     <p>
                                     <?php echo $array["autore"]." - ".$array["data_inizio"]?>
                                     </p>
-                                    <button type="submit" name="<?php echo $array["nome"]?>" onclick="iscrizione(name);">Follow</button>
+                                    <button type="submit" name="<?php echo $array["nome"]?>" onclick="iscrizione(name);">Follow - <?php echo $array["costo"];?>€</button>
                                 </div>
                             </div>
                         </div>
@@ -285,7 +290,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
                                 <p>
                                 <?php echo $array["autore"]." - ".$array["data_inizio"]?>
                                 </p>
-                                <button type="submit" name="<?php echo $array["nome"]?>" onclick="iscrizione(name);">Follow</button>
+                                <button type="submit" name="<?php echo $array["nome"]?>" onclick="iscrizione(name);">Follow - <?php echo $array["costo"];?>€</button>
                             </div>
                         </div>
                     </div>
@@ -374,7 +379,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
                                 <p>
                                 <?php echo $array["autore"]." - ".$array["data_inizio"]?>
                                 </p>
-                                <button type="submit" name="<?php echo $array["nome"]?>" onclick="iscrizione(name);">Follow</button>
+                                <button type="submit" name="<?php echo $array["nome"]?>" onclick="iscrizione(name);">Follow - <?php echo $array["costo"];?>€</button>
                             </div>
                         </div>
                     </div>
