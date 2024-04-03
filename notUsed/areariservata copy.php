@@ -23,7 +23,7 @@
     <li><a href="php/logout.php"><i class='bx bxs-log-out'></i> sign-out</a></li>
     <li><a href="termsOfUse.html"><i class='bx bx-user'></i> terms of use</a></li>
     <!-- <li><a href="settings.html"><i class='bx bx-cog'></i> settings</a></li> -->
-    </ul>
+  </ul>
 </div>
 
   <!-- Per cambiare le icone vai su https://boxicons.com e prendi la sezione FONT -->
@@ -52,12 +52,9 @@
           <a href="#">TEXT</a>
           <a href="#">TEXT</a>
           <div class="dropdown">
-            <a href="#">
-              <div class="pfp">
-                <img src="img/Default_pfp.jpg"/> 
-              </div>
-              Account
-              <img src="img/chevron.png"/>
+            <a href="#"
+              >Explore
+              <img src="img/chevron.png" />
             </a>
             <div class="menu">
               <a href="#"> opzione1 </a>
@@ -65,9 +62,13 @@
               <a href="#"> opzione3 </a>
               <a href="#"> opzione4 </a>
               <a href="#"> opzione5 </a>
-              <a href="php/login.php" class="login-link"> logout </a>
+              <a href="#"> opzione6 </a>
             </div>
           </div>
+          <div class="logo">
+          <img src="img/Default_pfp.jpg" />
+          </div>
+          <a href="php/login.php" class="login-link"> sign out </a>
         </div>
       </nav>
 
@@ -82,7 +83,7 @@
       </font>
     </div>
 
-    <br><br>
+    <br><br><br><br><br>
 
     <ul class="accordion">
       <!-- Accordion 1-->
@@ -101,7 +102,7 @@
           <img src="img/VideoLessons.png">
           <div class="content">
               <span>
-                  <h2>Video Lessons</h2>
+                  <h2>VideoLessons</h2>
                   <p>Video lessons of the courses you signed up for</p>
               </span>
           </div>
@@ -109,7 +110,7 @@
 
       <!-- Accordion 3-->
       <li>
-          <img src="img/courses.jpg">
+          <img src="img/VideoLessons.png">
           <div class="content" onclick="toCourses()">
               <span>
                   <h2>View courses</h2>

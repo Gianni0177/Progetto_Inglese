@@ -113,7 +113,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
       <li><a href="areaRiservata.php"><i class='bx bxs-user-badge'></i> reserved area</a></li>
       <li><a href="php/sign-in.php"><i class='bx bxs-log-in'></i> sign up</a></li>
       <li><a href="termsOfUse.html"><i class='bx bx-user'></i> terms of use</a></li>
-      <li><a href="settings.html"><i class='bx bx-cog'></i> settings</a></li>
+    <!-- <li><a href="settings.html"><i class='bx bx-cog'></i> settings</a></li> -->
     </ul>
 </div>
   
