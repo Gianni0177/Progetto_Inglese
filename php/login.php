@@ -43,18 +43,29 @@ if (isset($_POST["login"])) {
 
 <html>
 <head>
-    <title>Login Form</title>
+    <title>EduStream - Login</title>
     <link rel="stylesheet" type="text/css" href="../css/stile2.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        function redirectAccount(){
+            var url="sign-in.php";
+            window.location.href = url; 
+        }
+    </script>
+
 </head>
 <body>
 
 <div class="login-container">
-    <h2>Portale Login</h2>
+    <h2>Login</h2>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <input required type="text" name="username" placeholder="Username"><br><br>
         <input required type="password" name="password" placeholder="Password"><br><br>
         <input name="login" type="submit" value="Login">
     </form>
+    <button style="background-color:red" type="submit" name="redirectAccount" onclick="redirectAccount();">Or register an account</button>
 </div>
 
 </body>

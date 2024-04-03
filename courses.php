@@ -56,9 +56,51 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
             window.location.href = url;         //ricarico per aggiornare l'url
         }
 
+        function caricaAppunti(materia){
+            if(materia=="English"){
+                var url="img/example_English1.jpg";   
+                window.location.href = url; 
+            }
+
+            if(materia=="Litherature"){
+                var url="img/example_Letteratura.jpeg";   
+                window.location.href = url; 
+            }
+
+            if(materia=="IT Technology"){
+                var url="img/example_ITTech.jpeg";   
+                window.location.href = url; 
+            }
+
+            if(materia=="Science"){
+                var url="img/example_Science.jpeg";   
+                window.location.href = url; 
+            }
+
+            if(materia=="Phisics"){
+                var url="img/example_Phisics.jpeg";   
+                window.location.href = url; 
+            }
+
+            if(materia=="Mathematics"){
+                var url="img/example_Math1.jpeg";   
+                window.location.href = url; 
+            }
+
+            if(materia=="Network"){
+                var url="img/example_Network.jpeg";   
+                window.location.href = url; 
+            }
+
+            if(materia=="History"){
+                var url="img/example_History.jpeg";   
+                window.location.href = url; 
+            }
+        }
+
     </script>
 
-    <title>EduStream > Your Courses</title>
+    <title>EduStream - Your Courses</title>
 </head>
 <body>
 
@@ -95,7 +137,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
 <nav class="navbar">
     <div class="logo">
         <img src="img/Logo_IMG.png" />
-        <h2>EduStream > Your Courses</h2>
+        <h2>EduStream - Your Courses</h2>
     </div>
     <div class="links">
         <a href="#">TEXT</a>
@@ -121,6 +163,8 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
 
 <div class="space"></div>
 
+
+
     
     <?php 
         
@@ -135,7 +179,15 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
     
             if ($risultato && $risultato->num_rows > 0) {
                 ?>
-                    <h1>Your courses</h1>
+                    
+                    <div class="titolo_centrale">
+                        <font> <!-- Se vuoi cambiare font-->
+                            <center>
+                            <br><br>Your Courses:
+                            </center>
+                        </font>
+                    </div>
+                    
                 <?php
                 while ($array = mysqli_fetch_assoc($risultato)) {
                     $sql2 = "SELECT * FROM lista_corsi WHERE nome='$array[nome_corso]'";
@@ -151,6 +203,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
                                 <p>
                                 <?php echo $array2["autore"]." - ".$array2["data_inizio"]?>
                                 </p>
+                                <button type="submit" name="<?php echo $array2["materia"]?>" onclick="caricaAppunti(name);">Notes</button>&nbsp;&nbsp;&nbsp;
                                 <button type="submit" name="<?php echo $array2["nome"]?>" onclick="disiscrizione(name);">Unfollow</button>
                             </div>
                         </div>
@@ -159,6 +212,16 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
                     <?php 
                 }
                 
+            }else{
+                ?>
+                    <div class="titolo_centrale">
+                        <font> <!-- Se vuoi cambiare font-->
+                            <center>
+                            <br><br>No courses found!
+                            </center>
+                        </font>
+                </div>
+                <?php
             }
         
     
@@ -172,6 +235,8 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
     
 
     ?> 
+
+
 
 
 </body>

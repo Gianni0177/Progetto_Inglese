@@ -1,7 +1,16 @@
 <html>
 <head>
-    <title>Sign-In</title>
+    <title>EduStream - Sign-in</title>
     <link rel="stylesheet" type="text/css" href="../css/stile2.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        function redirectAccount(){
+            var url="login.php";
+            window.location.href = url; 
+        }
+    </script>
 </head>
 
 
@@ -44,6 +53,7 @@ if (isset($_POST["sign-in"])) {
         <input required type="text" name="school_name" placeholder="School name"><br><br>
         <input name="sign-in" type="submit" value="Sign In">
     </form>
+    <button style="background-color:red" type="submit" name="redirectAccount" onclick="redirectAccount();">Or login</button>
 </div>
 
 </body>
