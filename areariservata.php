@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" href="img/logov2.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -33,11 +34,11 @@
   <br><br><br><br><br>
 
   <ul>
-    <li><a href="#"><i class='bx bx-group' ></i> who we are</a></li>
-    <li><a href="#"><i class='bx bx-briefcase'></i> what we do</a></li>
-    <li><a href="#"><i class='bx bx-help-circle' ></i> help</a></li>
-    <li><a href="#"><i class='bx bxs-contact'></i> contact</a></li>
-    <li><a href="#"><i class='bx bxl-creative-commons'></i> credit</a></li>
+    <li><a href="whoweare.html"><i class='bx bx-group' ></i> who we are</a></li>
+    <li><a href="whatwedo.html"><i class='bx bx-briefcase'></i> what we do</a></li>
+    <li><a href="help.html"><i class='bx bx-help-circle' ></i> help</a></li>
+    <li><a href="contact.html"><i class='bx bxs-contact'></i> contact</a></li>
+    <li><a href="credits.html"><i class='bx bxl-creative-commons'></i> credit</a></li>
     </ul>
   </div>
 
@@ -45,8 +46,8 @@
   <!-- Barra di Navigazione -->
     <nav class="navbar">
         <div class="logo">
-          <img src="img/Logo_IMG.png" />
-          <h2>Take Notes! - Area Riservata</h2>
+          <img src="img/logov2.png" />
+          <h2>EduStream - Area Riservata</h2>
         </div>
         <div class="links">
           <a href="#">TEXT</a>
