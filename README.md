@@ -1,6 +1,6 @@
-<h1><center>Progetto Inglese</center></h1> 
+<h1><center>Progetto Inglese - EduStream</center></h1> 
 
-<div align="center"><img src="https://github.com/Gianni0177/Progetto_Inglese/blob/v0.1-alpha/img/TakeNotes!.png"></div>
+<div align="center"><img src="https://raw.githubusercontent.com/Gianni0177/Progetto_Inglese/v0.2/img/Logo_IMG.png"></div>
 
 ## Members
 
