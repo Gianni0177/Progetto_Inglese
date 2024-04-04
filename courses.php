@@ -157,14 +157,11 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
               <a href="#"> opzione3 </a>
               <a href="#"> opzione4 </a>
               <a href="#"> opzione5 </a>
-              <a href="php/login.php" class="login-link"> logout </a>
+              <a href="php/logout.php" class="login-link"> logout </a>
             </div>
           </div>
         </div>
       </nav>
-
-
-<div class="space"></div>
 
 
 
@@ -183,12 +180,15 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
             if ($risultato && $risultato->num_rows > 0) {
                 ?>
                     
-                    <div class="titolo_centrale">
-                        <font> <!-- Se vuoi cambiare font-->
-                            <center>
-                            <br><br>Your Courses:
-                            </center>
-                        </font>
+                    <div class="container">
+                        <br><br><br><br><br><br>
+                        <div class="titolo_centrale">
+                            <font> <!-- Se vuoi cambiare font-->
+                                <center>
+                                Your Courses:
+                                </center>
+                            </font>
+                        </div>
                     </div>
                     
                 <?php
@@ -217,13 +217,16 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
                 
             }else{
                 ?>
-                    <div class="titolo_centrale">
-                        <font> <!-- Se vuoi cambiare font-->
-                            <center>
-                            <br><br>No courses found!
-                            </center>
-                        </font>
-                </div>
+                <div class="container"> <br><br><br><br><br><br>
+                       
+                        <div class="titolo_centrale">
+                            <font> <!-- Se vuoi cambiare font-->
+                                <center>
+                                No courses found!
+                                </center>
+                            </font>
+                        </div>
+                    </div>
                 <?php
             }
         

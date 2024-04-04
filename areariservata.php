@@ -66,7 +66,7 @@
               <a href="#"> opzione3 </a>
               <a href="#"> opzione4 </a>
               <a href="#"> opzione5 </a>
-              <a href="php/login.php" class="login-link"> logout </a>
+              <a href="php/logout.php" class="login-link"> logout </a>
             </div>
           </div>
         </div>
