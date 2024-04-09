@@ -92,10 +92,10 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
     <ul class="accordion">
       <!-- Accordion 1-->
       <li>
-          <img src="img/Notes.jpg">
-          <div class="content">
+          <img src="img/Notes.jpg" >
+          <div class="content" onclick="toExample()">
               <span>
-                  <h2>Notes</h2>
+                  <h2>Your Courses</h2>
                   <p>Notes from the courses you signed up for</p>
               </span>
           </div>
@@ -104,7 +104,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
       <!-- Accordion 2-->
       <li>
           <img src="img/VideoLessons.png">
-          <div class="content">
+          <div class="content" onclick="toVideos()">
               <span>
                   <h2>Video Lessons</h2>
                   <p>Video lessons of the courses you signed up for</p>
