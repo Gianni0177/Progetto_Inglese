@@ -72,13 +72,20 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="icon" href="img/logov2.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!--<script type="text/javascript" src="js/funzioni.js"></script>-->
+    <script type="text/javascript" src="js/funzioni.js"></script>
 
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -107,34 +114,27 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
     <title>EduStream - Home</title>
 </head>
 <body>
-
-<!-- Sidebar SX-->
-<div class="sidebarS">
-    <br><br><br><br><br>
-    <!-- Per aggiungere righe copia incolla un li-->
-    <ul>
-      <!--<li><a href="graduation.html"><i class='bx bxs-graduation'></i> graduation</a></li>-->
-      <li><a href="areaRiservata.php"><i class='bx bxs-user-badge'></i> reserved area</a></li>
-      <li><a href="php/sign-in.php"><i class='bx bxs-log-in'></i> sign in</a></li>
-      <li><a href="termsOfUse.html"><i class='bx bx-user'></i> terms of use</a></li>
-      <li><a href="credits.html"><i class='bx bxl-creative-commons'></i> credit</a></li>
-    <!-- <li><a href="settings.html"><i class='bx bx-cog'></i> settings</a></li> -->
-    </ul>
-</div>
-  
+ 
     <!-- Per cambiare le icone vai su https://boxicons.com e prendi la sezione FONT -->
-  
-<!-- Sidebar DX -->
-<div class="sidebarD">
-    <br><br><br><br><br>
-  
-    <ul>
-      <li><a href="whoweare.html"><i class='bx bx-group' ></i> who we are</a></li>
-      <li><a href="whatwedo.html"><i class='bx bx-briefcase'></i> what we do</a></li>
-      <li><a href="help.html"><i class='bx bx-help-circle' ></i> help</a></li>
-      <li><a href="contacts.html"><i class='bx bxs-contact'></i> contact</a></li>
-    </ul>
-</div>
+
+<button class="burger" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+      <i class="fa-solid fa-close"></i>
+    </button>
+    <aside class="aside">
+        <br><br><br><br><br><br><br><br><br>
+        
+        <ul>
+            <li><a href="areaRiservata.php"><i class='bx bxs-user-badge'></i> reserved area</a></li>
+            <li><a href="php/sign-in.php"><i class='bx bxs-log-in'></i> sign in</a></li>
+            <li><a href="termsOfUse.html"><i class='bx bx-user'></i> terms of use</a></li>
+            <li><a href="credits.html"><i class='bx bxl-creative-commons'></i> credit</a></li>
+            <li><a href="whoweare.html"><i class='bx bx-group' ></i> who we are</a></li>
+            <li><a href="whatwedo.html"><i class='bx bx-briefcase'></i> what we do</a></li>
+            <li><a href="help.html"><i class='bx bx-help-circle' ></i> help</a></li>
+            <li><a href="contacts.html"><i class='bx bxs-contact'></i> contact</a></li>
+        </ul>
+    </aside>
 
 
 <!-- Barra di Navigazione -->
@@ -175,7 +175,8 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
             <button name="invio" type="submit" id="search" onclick="">Search</button>
         </div>
     </form>
-
+</div>
+<div class="wrapper">
         <!--Dropdown-->
         <div id="buttons">
             <div class="links">
@@ -209,9 +210,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
                 </div>
             </div>
         </div>
-    
     </div>
-    <div id="products"></div>
 </div>
     
 <div class="space2"></div>

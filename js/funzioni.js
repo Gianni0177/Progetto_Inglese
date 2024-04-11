@@ -11,3 +11,5 @@ function toVideos(){
 function toVideoLS(){
     window.location.href = "videoLessonGLR.html";
 }
+
+const toggleMenu = () => document.body.classList.toggle("open");
