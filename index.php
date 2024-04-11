@@ -65,8 +65,6 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
     }
 
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -122,11 +120,10 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
       <i class="fa-solid fa-close"></i>
     </button>
     <aside class="aside">
-        <br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br>
         
         <ul>
             <li><a href="areaRiservata.php"><i class='bx bxs-user-badge'></i> reserved area</a></li>
-            <li><a href="php/sign-in.php"><i class='bx bxs-log-in'></i> sign in</a></li>
             <li><a href="termsOfUse.html"><i class='bx bx-user'></i> terms of use</a></li>
             <li><a href="credits.html"><i class='bx bxl-creative-commons'></i> credit</a></li>
             <li><a href="whoweare.html"><i class='bx bx-group' ></i> who we are</a></li>
@@ -156,6 +153,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
             </a>
             <div class="menu">
               <a href="php/account-details.php"> Account details </a>
+              <a href="php/sign-in.php"> Sign Up </a>
               <a href="#"> Settings </a>
               <a href="php/logout.php" class="login-link"> logout </a>
             </div>

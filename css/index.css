@@ -6,8 +6,6 @@
   box-sizing: border-box;
 }
 
-
-
 body {
   display: flex;
   flex-wrap: wrap;
@@ -15,7 +13,6 @@ body {
   align-items: center;
   margin: 0 auto;
   background: #3a3544;
-
 }
 
 .titolo_centrale {
@@ -465,7 +462,7 @@ body {
   .burger {
     position: fixed;
     z-index: 100;
-    top: 80px;
+    top: 73px;
     left: 0;
     display: grid;
     place-items: center;
