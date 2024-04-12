@@ -50,6 +50,10 @@ body {
   .logo {
     gap: 12px;
   }
+
+  logo:hover{
+    cursor: pointer;
+  }
   
   .logo img {
     width: 40px;

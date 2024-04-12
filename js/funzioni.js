@@ -12,4 +12,8 @@ function toVideoLS(){
     window.location.href = "videoLessonGLR.html";
 }
 
+function toHome(){
+    window.location.href = "index.php";
+}
+
 const toggleMenu = () => document.body.classList.toggle("open");

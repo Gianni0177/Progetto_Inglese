@@ -60,6 +60,10 @@ body{
     gap: 12px;
   }
   
+  logo:hover{
+    cursor: pointer;
+  }
+  
   .logo img {
     width: 40px;
     height: 40px;

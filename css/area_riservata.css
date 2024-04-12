@@ -174,6 +174,10 @@ body{
   .logo {
     gap: 12px;
   }
+
+  .logo:hover{
+    cursor: pointer;
+  }
   
   .logo img {
     width: 40px;
@@ -343,98 +347,86 @@ body{
     color: #000;
   }
   
-  /* Sidebar Sinistra*/
-  
-  .sidebarS {
+  /* sidebarX2 */
+  .burger {
     position: fixed;
+    z-index: 100;
+    top: 73px;
+    left: 0;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    width: 82px;
+    height: 82px;
+    font-size: 30px;
+    color: #000000;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+  
+  .burger i:last-child {
+    display: none;
+  }
+  
+  body.open .burger i:first-child {
+    display: none;
+  }
+  
+  body.open .burger i:last-child {
+    display: block;
+  }
+
+  aside {
+    position: fixed;
+    z-index: 2;
     top: 0;
     left: 0;
-    width: 300px;
+    display: flex;
+    flex-direction: column;
+    width: 260px;
     height: 100%;
-    background: #3a3544;
-    z-index: 90;
+    padding: 18px 20px 20px;
+    background: #524b61;
+    box-shadow: 0 0 20px rgb(0 0 0 / 70%);
+    translate: -100% 0;
+    transition: 0.3s;
+  }
+  
+  body.open aside {
+    translate: 0;
+  }
+  
+  aside a {
+    display: block;
+    padding: 15px;
+    border-radius: 10px;
+    color: #121017;
+    text-decoration: none;
     transition: all 0.3s ease;
-    background-color: #4c4657; /* Da aggiustare*/
+    font-size: 130%;
   }
-  
-  .sidebarS ul{
-    padding: 10px;
-  }
-  
-  .sidebarS li{
-    margin: 10px 0;
+
+  aside ul{
     list-style: none;
   }
   
-  .sidebarS a {
-    display: block;
-    padding: 15px;
-    background: #0B1019;
-    border-radius: 10px;
-    color: #8F96A7;
-    transition: all 0.3s ease;
+  aside li{
+    margin: 10px 0;
+    list-style: none;
   }
-  
-  .sidebarS a i {
-    font-size: 18px;
+
+  aside a i {
     margin-right: 10px;
     float: left;
   }
   
-  .sidebarS a:hover {
+  aside a:hover {
     color: #fff;
     background: #1d2028;
   }
   
-  .sidebarS .active {
-    background: #1d2028;
-    color: #fff;
-  }
-  
-  /* Sidebar dx*/
-  
-  .sidebarD {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100%;
-    background: #3a3544;
-    z-index: 90;
-    justify-content: space-between;
-    background-color: #4c4657; /* Da aggiustare*/
-  }
-  
-  .sidebarD ul{
-    padding: 10px;
-  }
-  
-  .sidebarD li{
-    margin: 10px 0;
-    list-style: none;
-  }
-  
-  .sidebarD a {
-    display: block;
-    padding: 15px;
-    background: #0B1019;
-    border-radius: 10px;
-    color: #8F96A7;
-    transition: all 0.3s ease;
-  }
-  
-  .sidebarD a i {
-    font-size: 18px;
-    margin-right: 10px;
-    float: left;
-  }
-  
-  .sidebarD a:hover {
-    color: #fff;
-    background: #1d2028;
-  }
-  
-  .sidebarD .active {
+  aside .active {
     background: #1d2028;
     color: #fff;
   }

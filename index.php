@@ -119,19 +119,19 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
       <i class="fa-solid fa-bars"></i>
       <i class="fa-solid fa-close"></i>
     </button>
-    <aside class="aside">
-        <br><br><br><br><br><br><br>
-        
-        <ul>
-            <li><a href="areaRiservata.php"><i class='bx bxs-user-badge'></i> reserved area</a></li>
-            <li><a href="termsOfUse.html"><i class='bx bx-user'></i> terms of use</a></li>
-            <li><a href="credits.html"><i class='bx bxl-creative-commons'></i> credit</a></li>
-            <li><a href="whoweare.html"><i class='bx bx-group' ></i> who we are</a></li>
-            <li><a href="whatwedo.html"><i class='bx bx-briefcase'></i> what we do</a></li>
-            <li><a href="help.html"><i class='bx bx-help-circle' ></i> help</a></li>
-            <li><a href="contacts.html"><i class='bx bxs-contact'></i> contact</a></li>
-        </ul>
-    </aside>
+<aside class="aside">
+    <br><br><br><br><br><br><br>
+    
+    <ul>
+        <li><a href="areaRiservata.php"><i class='bx bxs-user-badge'></i> reserved area</a></li>
+        <li><a href="termsOfUse.html"><i class='bx bx-user'></i> terms of use</a></li>
+        <li><a href="credits.html"><i class='bx bxl-creative-commons'></i> credit</a></li>
+        <li><a href="whoweare.html"><i class='bx bx-group' ></i> who we are</a></li>
+        <li><a href="whatwedo.html"><i class='bx bx-briefcase'></i> what we do</a></li>
+        <li><a href="help.html"><i class='bx bx-help-circle' ></i> help</a></li>
+        <li><a href="contacts.html"><i class='bx bxs-contact'></i> contact</a></li>
+    </ul>
+</aside>
 
 
 <!-- Barra di Navigazione -->
@@ -395,47 +395,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
     
 
     ?> 
-<!--<div class="container">  
-    <div class="card">
-        <img src="img/example_English1.jpg" />
-        <div class="testoCorsi">
-            <h2>Davide</h2>
-            <h3>Inglese - 5 superiore</h3>
-            <p>
-            Appunti di inglese: Pragmatics - 19-02-2024
-            </p>
-            <button type="submit" name="English" onclick="iscrizione(name);">Follow</button>
-        </div>
-    </div>
-</div>
 
-<div class="container">  
-    <div class="card">
-        <img src="img/example_Letteratura.jpeg" />
-        <div class="testoCorsi">
-            <h2>Denise</h2>
-            <h3>Letteratura - 5 superiore</h3>
-            <p>
-            Appunti su Pascoli - 20/03/2024
-            </p>
-            <button type="submit" name="Litherature" onclick="iscrizione(name);">Follow</button>
-        </div>
-    </div>
-</div>
-
-<div class="container">  
-    <div class="card">
-        <img src="img/example_Math1.jpg" />
-        <div class="testoCorsi">
-            <h2>Gabriele</h2>
-            <h3>Matematica - 5 superiore</h3>
-            <p>
-            Appunti sugli insiemi - 28/03/2024
-            </p>
-            <button>Follow Account</button>
-        </div>
-    </div>
-</div>-->
 
             <?php 
         }
