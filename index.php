@@ -224,7 +224,7 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
         
                 $nomeCorso=$_POST["ricercaBarra"];
                 
-                $sql = "SELECT * FROM lista_corsi WHERE nome='$nomeCorso'";
+                $sql = "SELECT * FROM lista_corsi WHERE nome LIKE '%$nomeCorso%'";
                 $risultato = $connessione->query($sql);
         
                 if ($risultato && $risultato->num_rows > 0) {
