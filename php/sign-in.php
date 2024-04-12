@@ -20,16 +20,15 @@ if (isset($_POST["sign-in"])) {
         $connessione = mysqli_connect("localhost", "root", "root", "progettoinglese");
 
        
-        $sql = "INSERT INTO utente (username, pwd, email, nome, cognome, nome_scuola, data_registrazione) VALUES (?, ?, ?, ?, ?, ?, NOW())";
+        $sql = "INSERT INTO utente (username, pwd, email, nome, cognome, nome_scuola, ruolo, data_registrazione) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())";
         $stmt = mysqli_prepare($connessione, $sql);
+        $role = "user";
 
         if ($stmt) {
-            mysqli_stmt_bind_param($stmt, "ssssss", $_POST["username"], $_POST["password"], $_POST["email"], $_POST["name"], $_POST["surname"], $_POST["school_name"]);
+            mysqli_stmt_bind_param($stmt, "sssssss", $_POST["username"], $_POST["password"], $_POST["email"], $_POST["name"], $_POST["surname"], $_POST["school_name"], $role);
 
             mysqli_stmt_execute($stmt);
-            mysqli_stmt_close($stmt);
         }
-
         mysqli_close($connessione);
     } catch (Exception $e) {
     }
@@ -51,17 +50,10 @@ if (isset($_POST["sign-in"])) {
         <input required type="text" name="name" placeholder="Your name"><br><br>
         <input required type="text" name="surname" placeholder="Your surname"><br><br>
         <input required type="text" name="school_name" placeholder="School name"><br><br>
-        <input name="sign-in" type="submit" value="Sign In">
+        <input style="background-color:#DAF7A6" name="sign-in" type="submit" value="Sign In">
     </form>
     <button style="background-color:red" type="submit" name="redirectAccount" onclick="redirectAccount();">Or login</button>
 </div>
-
-</body>
-</html>
-
-
-
-    </div>
 
 </body>
 </html>

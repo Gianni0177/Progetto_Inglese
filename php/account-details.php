@@ -58,6 +58,7 @@ session_start();
         Username: <?php echo $array["username"]?><br><br>
         Email: <?php echo $array["email"]?><br><br>
         Your school name: <?php echo $array["nome_scuola"]?><br><br>
+        Role: <?php echo $array["ruolo"]?><br><br>
         Last modify: <?php echo $array["data_registrazione"]?><br><br><br><br>
         
     <button style="background-color:red" type="submit" name="redirectAccount" onclick="redirectAccount();">Or return to the homepage</button>

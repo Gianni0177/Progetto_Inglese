@@ -63,7 +63,7 @@ if (isset($_POST["login"])) {
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <input required type="text" name="username" placeholder="Username"><br><br>
         <input required type="password" name="password" placeholder="Password"><br><br>
-        <input name="login" type="submit" value="Login">
+        <input style="background-color:#DAF7A6" name="login" type="submit" value="Login">
     </form>
     <button style="background-color:red" type="submit" name="redirectAccount" onclick="redirectAccount();">Or register an account</button>
 </div>
