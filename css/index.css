@@ -74,6 +74,7 @@ body {
   
   .pfp {
     gap: 12px;
+    font-size: 150%;
   }
   
   .pfp img {
@@ -214,7 +215,7 @@ body {
   }
   
   .menu > a {
-    font-size: 14px;
+    font-size: 16px;
     padding: 12px 20px;
   }
   

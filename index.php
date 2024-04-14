@@ -143,13 +143,29 @@ if(!$_SESSION["AUTENTICATO"]=="ok"){
         <div class="links">
           <!--<a href="#">TEXT</a>
           <a href="#">TEXT</a>-->
+
           <div class="dropdown">
             <a href="#">
-              <div class="pfp">
+            <div class="pfp">
+                <i class='bx bxs-universal-access'></i>
+            </div>
+            Accesibility
+            <img src="img/chevron.png"/>
+            </a>
+            <div class="menu">
+              <a href="#">  Text to speech  <i class='bx bx-volume-mute'></i></a>
+              <a href="#"> Color blindness <i class='bx bx-color'></i> </a>
+              <a href="#"> Color theme <i class='bx bx-palette' ></i> </a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <a href="#">
+            <div class="pfp">
                 <img src="img/Default_pfp.jpg"/> 
-              </div>
-              Account
-              <img src="img/chevron.png"/>
+            </div>
+            Account
+            <img src="img/chevron.png"/>
             </a>
             <div class="menu">
               <a href="php/account-details.php"> Account details </a>
