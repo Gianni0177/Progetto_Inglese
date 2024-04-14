@@ -44,7 +44,7 @@
     gap: 12px;
   }
 
-  logo:hover{
+  .logo:hover{
     cursor: pointer;
   }
   
@@ -227,7 +227,7 @@
     width: 82px;
     height: 82px;
     font-size: 30px;
-    color: #000000;
+    color: #ffffff;
     background: transparent;
     border: 0;
     cursor: pointer;
@@ -255,7 +255,7 @@
     width: 260px;
     height: 100%;
     padding: 18px 20px 20px;
-    background: #524b61;
+    background: #272e3c;
     box-shadow: 0 0 20px rgb(0 0 0 / 70%);
     translate: -100% 0;
     transition: 0.3s;
@@ -269,7 +269,7 @@
     display: block;
     padding: 15px;
     border-radius: 10px;
-    color: #121017;
+    color: #ffffff;
     text-decoration: none;
     transition: all 0.3s ease;
     font-size: 130%;
@@ -290,7 +290,7 @@
   }
   
   aside a:hover {
-    color: #fff;
+    color: #be00db;
     background: #1d2028;
   }
   
@@ -319,7 +319,7 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    background: #3a3544;
+    background: #1b202c;
   }
 
   .container {
